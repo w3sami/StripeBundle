@@ -12,7 +12,7 @@ Add Stripe Bundle in your composer.json:
 ```js
 {
     "require": {
-        "driveop/stripe-bundle": "^0.1"
+        "driveop/stripe-bundle": "^1.0"
     }
 }
 ```

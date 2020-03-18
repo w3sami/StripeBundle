@@ -1,5 +1,5 @@
 <?php
-namespace DriveOp\TwilioBundle;
+namespace DriveOp\StripeBundle;
 
 use DriveOp\StripeBundle\DependencyInjection\DriveOpStripeExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;

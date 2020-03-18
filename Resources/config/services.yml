@@ -1,0 +1,9 @@
+parameters:
+     stripe_client.class: DriveOp\StripeBundle\Services\StripeClient
+
+services:
+     DriveOp\StripeBundle\Services\StripeClient: "@stripe_client"
+     stripe_client:
+         class:     "%stripe_client.class%"
+         arguments: ["%stripe_private_key%"]
+         autowire: true

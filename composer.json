@@ -1,0 +1,37 @@
+{
+    "name": "driveop/stripe-bundle",
+    "description": "A simple Symfony bundle for Stripe API.",
+    "type": "symfony-bundle",
+    "keywords": [
+        "driveop",
+        "stripe"
+    ],
+    "homepage": "https://github.com/driveop/StripeBundle",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Juan Paulo Lara",
+        "email": "juan.lara@driveop.com",
+        "role": "developer"
+      }
+    ],
+    "require": {
+      "php": ">=7.1",
+      "stripe/stripe-php": "^7.27",
+      "symfony/config": "^3.0",
+      "symfony/dependency-injection": " ^3.0",
+      "symfony/framework-bundle": " ^3.0",
+      "symfony/http-foundation": " ^3.0",
+      "symfony/http-kernel": " ^3.0",
+      "symfony/options-resolver": " ^3.0",
+      "symfony/validator": " ^3.0"
+    },
+    "suggest": {
+    },
+    "require-dev": {
+    },
+    "autoload": {
+      "psr-0": { "DriveOp\\StripeBundle": "" }
+    },
+    "target-dir": "DriveOp/StripeBundle"
+}

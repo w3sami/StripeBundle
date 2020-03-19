@@ -1,6 +1,6 @@
 <?php
 
-namespace DriveOp\TwilioBundle\Services;
+namespace DriveOp\StripeBundle\Services;
 
 use Stripe\Stripe;
 use Stripe\Customer;

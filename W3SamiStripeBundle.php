@@ -1,10 +1,10 @@
 <?php
-namespace DriveOp\StripeBundle;
+namespace W3Sami\StripeBundle;
 
-use DriveOp\StripeBundle\DependencyInjection\DriveOpStripeExtension;
+use W3Sami\StripeBundle\DependencyInjection\W3SamiStripeExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class DriveOpStripeBundle extends Bundle
+class W3SamiStripeBundle extends Bundle
 {
     /**
      * {@inheritDoc}
@@ -16,7 +16,7 @@ class DriveOpStripeBundle extends Bundle
         // this allows us to have custom extension alias
         // default convention would put a lot of underscores
         if (null === $this->extension) {
-            $this->extension = new DriveOpStripeExtension();
+            $this->extension = new W3SamiStripeExtension();
         }
 
         return $this->extension;

@@ -1,21 +1,21 @@
 <?php
 
-namespace DriveOp\StripeBundle\Services;
+namespace W3Sami\StripeBundle\Services;
 
+use DateTime;
 use Stripe\Stripe;
 use Stripe\Customer;
 use Stripe\Subscription;
 use Stripe\Charge;
 
-class StripeClient
+class StripeClient extends Stripe
 {
-
-
     public function __construct($stripe_private_key)
     {
         // Set your secret key. Remember to switch to your live secret key in production!
         // See your keys here: https://dashboard.stripe.com/account/apikeys
-        Stripe::setApiKey($stripe_private_key);
+        self::setApiKey($stripe_private_key);
+        self::setAppInfo("w3sami/StripeBundle", "0.1", "https://github.com/w3sami/StripeBundle");
     }
 
 
@@ -23,14 +23,12 @@ class StripeClient
     ##       Customer      ##
     #########################
 
-    /**
-     * @param $token
-     * @param $email
-     * @param $name
-     * @param $phone
-     * @return Customer
-     */
-    public function createCustomer($token, $email, $name, $phone)
+    public function createCustomer(
+        string $token,
+        string $email,
+        string $name,
+        string $phone
+    ): Customer
     {
         return Customer::create(array(
                 "source" => $token,
@@ -41,11 +39,7 @@ class StripeClient
         );
     }
 
-    /**
-     * @param $customerId
-     * @return Customer
-     */
-    public function getCustomer($customerId)
+    public function getCustomer(string $customerId): Customer
     {
         return Customer::retrieve($customerId);
     }
@@ -54,41 +48,31 @@ class StripeClient
     ##     Subscription    ##
     #########################
 
-    /**
-     * @param $customerId
-     * @param $planId
-     * @param null $trialEnd
-     * @param null $billingCycleAnchor
-     * @param null $coupon
-     * @return Subscription
-     */
-    public function createSubscription($customerId, $planId, $trialEnd = null, $billingCycleAnchor = null, $coupon = null)
+    public function createSubscription(
+        string $customerId,
+        string $planId,
+        DateTime $trialEnd = null,
+        DateTime $billingCycleAnchor = null,
+        string $coupon = null): Subscription
     {
         $subscriptionOptions = [
             'customer' => $customerId,
             'items' => [['plan' => $planId]]
         ];
 
-        if ($trialEnd) $subscriptionOptions['trial_end'] = $trialEnd;
-        if ($billingCycleAnchor) $subscriptionOptions['billing_cycle_anchor'] = $billingCycleAnchor;
+        if ($trialEnd) $subscriptionOptions['trial_end'] = $trialEnd->getTimestamp();
+        if ($billingCycleAnchor) $subscriptionOptions['billing_cycle_anchor'] = $billingCycleAnchor->getTimestamp();
         if ($coupon) $subscriptionOptions['coupon'] = $coupon;
 
         return Subscription::create($subscriptionOptions);
     }
 
-    /**
-     * @param $subscriptionId
-     * @return Subscription
-     */
-    public function getSubscription($subscriptionId)
+    public function getSubscription(string $subscriptionId): Subscription
     {
         return Subscription::retrieve($subscriptionId);
     }
 
-    /**
-     * @param $subscriptionId
-     */
-    public function cancelSubscription($subscriptionId)
+    public function cancelSubscription(string $subscriptionId)
     {
         $subscription = $this->getSubscription($subscriptionId);
         $subscription->cancel();
@@ -99,14 +83,12 @@ class StripeClient
     ##        Charge       ##
     #########################
 
-    /**
-     * @param $token
-     * @param $amount
-     * @param $description
-     * @param string $currency
-     * @return Charge
-     */
-    public function createCharge($token, $amount, $description, $currency = 'mxn')
+    public function createCharge(
+        string $token,
+        int $amount,
+        string $description,
+        string $currency = 'mxn'
+    ): Charge
     {
         return Charge::create([
             'amount' => $amount,

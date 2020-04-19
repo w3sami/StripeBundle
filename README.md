@@ -1,51 +1,26 @@
-# DriveOpStripeBundle
-A simple Symfony bundle for Stripe Api.
+# W3SamiStripeBundle
+A simple wrapper for Stripe Api to use with Symfony 5.
 
-# Only SMS/WhatsApp!
+This bundle wraps the stripe-php library, so you can inject it in your own symfony code with ease.
+It provides a few shortcuts too, for creating a client and subscription.
+
+To see all available methods see https://github.com/stripe/stripe-php
 
 ## Setup
 
-### Step 1: Download DriveOpStripeBundle using composer
+### Step 1: Install W3SamiStripeBundle using composer
 
-Add Stripe Bundle in your composer.json:
-
-```js
-{
-    "require": {
-        "driveop/stripe-bundle": "^1.0"
-    }
-}
-```
-
-Now tell composer to download the bundle by running the command:
+Install with composer by running the command:
 
 ``` bash
-$ php composer.phar update "driveop/stripe-bundle"
+$ php composer.phar require "w3sami/stripe-bundle"
 ```
 
-
-### Step 2: Enable the bundle
-
-Enable the bundle in the kernel:
-
-``` php
-<?php
-// app/AppKernel.php
-
-public function registerBundles()
-{
-    $bundles = array(
-        // ...
-        new DriveOp\StripeBundle\DriveOpStripeBundle()
-    );
-}
-```
-
-### Step 3: Add configuration
+### Step 2: Add configuration
 
 ``` yml
 # app/config/config.yml
-driveop:
+w3Sami:
         stripe:
             stripe_private_key:    %stripe_private_key%
 ```
@@ -75,3 +50,5 @@ driveop:
 
 ?>
 ```
+
+To see all available api calls see https://stripe.com/docs/api

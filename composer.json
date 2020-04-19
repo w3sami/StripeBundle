@@ -1,37 +1,33 @@
 {
-    "name": "driveop/stripe-bundle",
-    "description": "A simple Symfony bundle for Stripe API.",
+    "name": "w3sami/stripe-bundle",
+    "description": "A simple Symfony 5 bundle to wrap Stripe API.",
     "type": "symfony-bundle",
     "keywords": [
-        "driveop",
+        "symfony 5",
+        "w3sami",
         "stripe"
     ],
-    "homepage": "https://github.com/driveop/StripeBundle",
+    "homepage": "https://github.com/w3sami/StripeBundle",
     "license": "MIT",
     "authors": [
       {
-        "name": "Juan Paulo Lara",
-        "email": "juan.lara@driveop.com",
+        "name": "Sami Lehtilä",
+        "email": "sami.lehtila@gmail.com",
         "role": "developer"
       }
     ],
     "require": {
-      "php": ">=7.1",
-      "stripe/stripe-php": "^7.27",
-      "symfony/config": "^3.0 || ^4.0",
-      "symfony/dependency-injection": " ^3.0 || ^4.0",
-      "symfony/framework-bundle": " ^3.0 || ^4.0",
-      "symfony/http-foundation": " ^3.0 || ^4.0",
-      "symfony/http-kernel": " ^3.0 || ^4.0",
-      "symfony/options-resolver": " ^3.0 || ^4.0",
-      "symfony/validator": " ^3.0 || ^4.0"
+      "php": "^7.2.5",
+      "stripe/stripe-php": "^7.28",
+      "symfony/dependency-injection": "^4.3|^5.0",
+      "symfony/config": "^4.3|^5.0"
     },
     "suggest": {
     },
     "require-dev": {
     },
     "autoload": {
-      "psr-0": { "DriveOp\\StripeBundle": "" }
+      "psr-4": { "w3sami\\StripeBundle\\": "" }
     },
-    "target-dir": "DriveOp/StripeBundle"
+    "target-dir": "w3sami/StripeBundle"
 }

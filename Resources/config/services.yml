@@ -5,5 +5,5 @@ services:
      W3sami\StripeBundle\Services\StripeClient: "@stripe_client"
      stripe_client:
          class:     "%stripe_client.class%"
-         arguments: ["%stripe_private_key%"]
+         arguments: ["%w3sami.stripe.stripe_private_key%"]
          autowire: true

@@ -13,7 +13,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 class Configuration implements ConfigurationInterface
 {
 
-    const ROOT_NAME = 'W3sami';
+    const ROOT_NAME = 'w3sami';
     const APP_NAME = 'stripe';
 
     /**
@@ -21,8 +21,8 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root(self::ROOT_NAME);
+        $treeBuilder = new TreeBuilder(self::ROOT_NAME);
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->children()

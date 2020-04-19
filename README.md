@@ -2,9 +2,10 @@
 A simple wrapper for Stripe Api to use with Symfony 5.
 
 This bundle wraps the stripe-php library, so you can inject it in your own symfony code with ease.
-It provides a few shortcuts too, for creating a client and subscription.
+It provides a few shortcuts too, for getting and creating a client, creating subscription, canceling a subscription and
+making a single charge.
 
-To see all available methods see https://github.com/stripe/stripe-php
+To see all available methods of stripe's php library, see https://github.com/stripe/stripe-php
 
 ## Setup
 
@@ -13,16 +14,16 @@ To see all available methods see https://github.com/stripe/stripe-php
 Install with composer by running the command:
 
 ``` bash
-$ composer require "W3sami/stripe-bundle:^1.0.6"
+$ composer require "w3sami/stripe-bundle:1.*"
 ```
 
 ### Step 2: Add configuration
 
 ``` yml
 # app/config/config.yml
-W3sami:
+w3sami:
   stripe:
-    stripe_private_key:    %stripe_private_key%
+    stripe_private_key: %stripe_private_key%
 ```
 
 ## Usage
@@ -61,4 +62,4 @@ or
 ?>
 ```
 
-To see all available api calls see https://stripe.com/docs/api
+To see all available api calls of stripe service see https://stripe.com/docs/api

@@ -27,6 +27,6 @@
     "require-dev": {
     },
     "autoload": {
-      "psr-4": { "w3sami\\StripeBundle\\": "" }
+      "psr-4": { "w3sami\\StripeBundle\\": "./" }
     }
 }

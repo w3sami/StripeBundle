@@ -1,4 +1,4 @@
-# W3SamiStripeBundle
+# W3samiStripeBundle
 A simple wrapper for Stripe Api to use with Symfony 5.
 
 This bundle wraps the stripe-php library, so you can inject it in your own symfony code with ease.
@@ -8,21 +8,21 @@ To see all available methods see https://github.com/stripe/stripe-php
 
 ## Setup
 
-### Step 1: Install W3SamiStripeBundle using composer
+### Step 1: Install W3samiStripeBundle using composer
 
 Install with composer by running the command:
 
 ``` bash
-$ php composer.phar require "w3sami/stripe-bundle"
+$ composer require "W3sami/stripe-bundle:^1.0.6"
 ```
 
 ### Step 2: Add configuration
 
 ``` yml
 # app/config/config.yml
-w3Sami:
-        stripe:
-            stripe_private_key:    %stripe_private_key%
+W3sami:
+  stripe:
+    stripe_private_key:    %stripe_private_key%
 ```
 
 ## Usage
@@ -31,7 +31,17 @@ w3Sami:
 
 ``` php
 <?php
-        $stripeClient = $this->get('stripe_client');
+  $stripeClient = $this->get('stripe_client');
+?>
+```
+
+or 
+
+``` php
+<?php
+  use W3sami\StripeBundle\Services\StripeClient;
+  public function __construct(StripeClient $stripeClient) {
+  }
 ?>
 ```
 

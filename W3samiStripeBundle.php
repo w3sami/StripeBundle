@@ -1,10 +1,10 @@
 <?php
-namespace W3Sami\StripeBundle;
+namespace W3sami\StripeBundle;
 
-use W3Sami\StripeBundle\DependencyInjection\W3SamiStripeExtension;
+use W3sami\StripeBundle\DependencyInjection\W3samiStripeExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class W3SamiStripeBundle extends Bundle
+class W3samiStripeBundle extends Bundle
 {
     /**
      * {@inheritDoc}
@@ -16,7 +16,7 @@ class W3SamiStripeBundle extends Bundle
         // this allows us to have custom extension alias
         // default convention would put a lot of underscores
         if (null === $this->extension) {
-            $this->extension = new W3SamiStripeExtension();
+            $this->extension = new W3samiStripeExtension();
         }
 
         return $this->extension;

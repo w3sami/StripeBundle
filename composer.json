@@ -7,7 +7,7 @@
         "w3sami",
         "stripe"
     ],
-    "homepage": "https://github.com/w3sami/StripeBundle",
+    "homepage": "https://github.com/W3sami/StripeBundle",
     "license": "MIT",
     "authors": [
       {
@@ -20,13 +20,14 @@
       "php": "^7.2.5",
       "stripe/stripe-php": "^7.28",
       "symfony/dependency-injection": "^4.3|^5.0",
-      "symfony/config": "^4.3|^5.0"
+      "symfony/config": "^4.3|^5.0",
+      "symfony/http-kernel": "^5.0"
     },
     "suggest": {
     },
     "require-dev": {
     },
     "autoload": {
-      "psr-4": { "w3sami\\StripeBundle\\": "./" }
+      "psr-4": { "W3sami\\StripeBundle\\": "./" }
     }
 }

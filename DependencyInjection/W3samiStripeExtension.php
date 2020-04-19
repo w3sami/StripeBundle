@@ -1,6 +1,6 @@
 <?php
 
-namespace W3Sami\StripeBundle\DependencyInjection;
+namespace W3sami\StripeBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -14,7 +14,7 @@ use Exception;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class W3SamiStripeExtension extends Extension
+class W3samiStripeExtension extends Extension
 {
 
     /**

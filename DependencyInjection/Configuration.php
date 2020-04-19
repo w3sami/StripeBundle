@@ -1,6 +1,6 @@
 <?php
 
-namespace W3Sami\StripeBundle\DependencyInjection;
+namespace W3sami\StripeBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -13,7 +13,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 class Configuration implements ConfigurationInterface
 {
 
-    const ROOT_NAME = 'w3sami';
+    const ROOT_NAME = 'W3sami';
     const APP_NAME = 'stripe';
 
     /**

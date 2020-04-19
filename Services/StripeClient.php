@@ -1,6 +1,6 @@
 <?php
 
-namespace W3Sami\StripeBundle\Services;
+namespace W3sami\StripeBundle\Services;
 
 use DateTime;
 use Stripe\Stripe;
@@ -15,7 +15,7 @@ class StripeClient extends Stripe
         // Set your secret key. Remember to switch to your live secret key in production!
         // See your keys here: https://dashboard.stripe.com/account/apikeys
         self::setApiKey($stripe_private_key);
-        self::setAppInfo("w3sami/StripeBundle", "0.1", "https://github.com/w3sami/StripeBundle");
+        self::setAppInfo("W3sami/StripeBundle", "0.1", "https://github.com/W3sami/StripeBundle");
     }
 
 

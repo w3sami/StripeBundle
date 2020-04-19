@@ -28,6 +28,5 @@
     },
     "autoload": {
       "psr-4": { "w3sami\\StripeBundle\\": "" }
-    },
-    "target-dir": "w3sami/StripeBundle"
+    }
 }

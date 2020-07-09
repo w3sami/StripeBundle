@@ -7,6 +7,8 @@ use Stripe\Stripe;
 use Stripe\Customer;
 use Stripe\Subscription;
 use Stripe\Charge;
+use Stripe\SetupIntent;
+use Stripe\StripeClient as StripeStripeClient;
 
 class StripeClient extends Stripe
 {
@@ -18,25 +20,41 @@ class StripeClient extends Stripe
         self::setAppInfo("W3sami/StripeBundle", "0.1", "https://github.com/W3sami/StripeBundle");
     }
 
+    public function getClient()
+    {
+        return new StripeStripeClient(self::getApiKey());
+    }
+
 
     #########################
     ##       Customer      ##
     #########################
 
     public function createCustomer(
-        string $token,
-        string $email,
         string $name,
-        string $phone
+        string $email,
+        string $phone,
+        string $token = null
     ): Customer
     {
-        return Customer::create(array(
-                "source" => $token,
-                "name" => $name,
-                "email" => $email,
-                'phone' => $phone
-            )
-        );
+        $params = [
+            "name" => $name,
+            "email" => $email,
+            'phone' => $phone
+        ];
+        if ($token) {
+            $params["source"] = $token;
+        }
+        return Customer::create($params);
+    }
+
+    public function createIntent(
+        Customer $customer
+    ): SetupIntent
+    {
+        return SetupIntent::create([
+            'customer' => $customer->id
+        ]);
     }
 
     public function getCustomer(string $customerId): Customer
